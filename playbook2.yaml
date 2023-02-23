@@ -1,0 +1,9 @@
+---
+- name: simple yaml file to install java and maven
+  hosts: all
+  tasks:
+    - name: install java and maven
+      apt:
+        name: ["default-jdk", "maven"]
+        state: present
+...

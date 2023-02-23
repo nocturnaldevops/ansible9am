@@ -1,0 +1,17 @@
+---
+- name: simple yaml file to install apache2 change the website and restart apache2
+  hosts: all
+  tasks:
+    - name: install apache2
+      apt:
+        name: apache2
+        state: present
+    - name: change the website
+      copy:
+        content: "<marquee><h2>NexsonIT Solutions</h2></marquee>"
+        dest: /var/www/html/index.html
+    - name: restart apache2
+      service:
+        name: apache2
+        state: restarted
+...

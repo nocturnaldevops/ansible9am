@@ -1,0 +1,17 @@
+---
+- name: simple yaml file to create a user and create a file in users workspace
+  hosts: all
+  tasks:
+    - name: create  user
+      user:
+        name: vinodha
+        password: "123456"
+        shell: /bin/bash
+        home: /home/vinodha
+        uid: 1155
+        comment: "devopsengineer"
+    - name: create a afile in user's workspace
+      file:
+        name: /home/vinodha/newfile.txt
+        state: touch
+...
